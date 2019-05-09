@@ -1,0 +1,85 @@
+/*
+ * Device Tree Include file for Kontron SMARC-sAL28.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target = <&mdio0>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qphy0: ethernet-phy@7 {
+				reg = <0x7>;
+			};
+
+			qphy1: ethernet-phy@8 {
+				reg = <0x8>;
+			};
+
+			qphy2: ethernet-phy@9 {
+				reg = <0x9>;
+			};
+
+			qphy3: ethernet-phy@10 {
+				reg = <0xa>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&enetc_port2>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&switch_port0>;
+		__overlay__ {
+			phy-handle = <&qphy0>;
+			phy-connection-type = "qsgmii";
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
+		target = <&switch_port1>;
+		__overlay__ {
+			phy-handle = <&qphy1>;
+			phy-connection-type = "qsgmii";
+			status = "okay";
+		};
+	};
+
+	fragment@4 {
+		target = <&switch_port2>;
+		__overlay__ {
+			phy-handle = <&qphy2>;
+			phy-connection-type = "qsgmii";
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&switch_port3>;
+		__overlay__ {
+			phy-handle = <&qphy3>;
+			phy-connection-type = "qsgmii";
+			status = "okay";
+		};
+	};
+
+	fragment@6 {
+		target = <&switch_port4>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
+

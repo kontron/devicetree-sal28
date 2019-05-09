@@ -1,0 +1,33 @@
+/*
+ * Device Tree Include file for Kontron SMARC-sAL28.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target = <&mdio0>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			phy1: ethernet-phy@4 {
+				reg = <0x4>;
+				// Atheros PHY on RDB seems to cause traffic loss @ 1Gbps w EEE
+				eee-broken-1000t;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&enetc_port1>;
+		__overlay__ {
+			phy-handle = <&phy1>;
+			phy-connection-type = "sgmii";
+			status = "okay";
+		};
+	};
+};
