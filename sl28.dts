@@ -54,16 +54,6 @@
 			bitclock-master;
 		};
 	};
-
-	// will be fixed in include dtsi
-	soc {
-		pcie@1f0000000 {
-			pci@0,5 {
-				switch_port4: port@4 {
-				};
-			};
-		};
-	};
 };
 
 &esdhc {
@@ -133,9 +123,10 @@
 	};
 };
 
-&qenetc_port0 {
+&enetc_port0 {
 	phy-handle = <&phy0>;
 	phy-connection-type = "sgmii";
+	status = "okay";
 };
 
 &enetc_port1 {
@@ -150,16 +141,19 @@
 	status = "disabled";
 };
 
-&edp {
-	fsl,no_edid;
-	lane_mapping = <0x4e>;
-	edp_link_rate = <0x6>;
-	edp_num_lanes = <0x4>;
-	status = "okay";
-};
 
-&sata {
-	status = "okay";
+
+/* l2switch ports */
+/* port@4 has no reference in the dtsi.. */
+/ {
+	soc {
+		pcie@1f0000000 {
+			pci@0,5 {
+				switch_port4: port@4 {
+				};
+			};
+		};
+	};
 };
 
 &switch_port0 {
@@ -180,4 +174,16 @@
 
 &switch_port4 {
 	status = "disabled";
+};
+
+&edp {
+	fsl,no_edid;
+	lane_mapping = <0x4e>;
+	edp_link_rate = <0x6>;
+	edp_num_lanes = <0x4>;
+	status = "okay";
+};
+
+&sata {
+	status = "okay";
 };
