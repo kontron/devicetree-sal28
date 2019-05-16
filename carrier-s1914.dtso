@@ -40,6 +40,13 @@
 	};
 
 	fragment@2 {
+		target = <&enetc_port3>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
 		target = <&switch_port0>;
 		__overlay__ {
 			phy-handle = <&qphy0>;
@@ -48,7 +55,7 @@
 		};
 	};
 
-	fragment@3 {
+	fragment@4 {
 		target = <&switch_port1>;
 		__overlay__ {
 			phy-handle = <&qphy1>;
@@ -57,7 +64,7 @@
 		};
 	};
 
-	fragment@4 {
+	fragment@5 {
 		target = <&switch_port2>;
 		__overlay__ {
 			phy-handle = <&qphy2>;
@@ -66,7 +73,7 @@
 		};
 	};
 
-	fragment@5 {
+	fragment@6 {
 		target = <&switch_port3>;
 		__overlay__ {
 			phy-handle = <&qphy3>;
@@ -75,8 +82,15 @@
 		};
 	};
 
-	fragment@6 {
+	fragment@7 {
 		target = <&switch_port4>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@8 {
+		target = <&switch_port5>;
 		__overlay__ {
 			status = "okay";
 		};
