@@ -104,11 +104,13 @@
 };
 
 &can0 {
+	/* CAN FD (flexible Data-Rate) is disabled */
+	compatible = "fsl,vf610-flexcan";
 	status = "okay";
 };
 
 &can1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &sai4 {
