@@ -32,28 +32,6 @@
 		regulator-max-microvolt = <1800000>;
 		regulator-always-on;
 	};
-
-	sound {
-		compatible = "simple-audio-card";
-		simple-audio-card,format = "i2s";
-		simple-audio-card,widgets =
-			"Microphone", "Microphone Jack",
-			"Headphone", "Headphone Jack",
-			"Speaker", "Speaker Ext",
-			"Line", "Line In Jack";
-		simple-audio-card,routing =
-			"MIC_IN", "Microphone Jack",
-			"Microphone Jack", "Mic Bias",
-			"LINE_IN", "Line In Jack",
-			"Headphone Jack", "HP_OUT",
-			"Speaker Ext", "LINE_OUT";
-
-		simple-audio-card,cpu {
-			sound-dai = <&sai4>;
-			frame-master;
-			bitclock-master;
-		};
-	};
 };
 
 &esdhc {
