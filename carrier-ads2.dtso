@@ -1,0 +1,56 @@
+/*
+ * Device Tree Include file for Kontron SMARC-sAL28.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			regulators {
+				compatible = "simple-bus";
+				#address-cells = <0x1>;
+				#size-cells = <0x0>;
+
+				can0_en_reg: fixedregulator@0 {
+					compatible = "regulator-fixed";
+					reg = <0>;
+					regulator-name = "CAN0_EN";
+					regulator-min-microvolt = <0x1b7740>;
+					regulator-max-microvolt = <0x1b7740>;
+					gpio = <&pm_gpio 0x6 0x0>;
+					enable-active-high;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&i2c3>;
+
+		__overlay__ {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+
+			pm_gpio: tca9554@22 {
+				compatible = "nxp,pca9554";
+				reg = <0x22>;
+				gpio-controller;
+				#gpio-cells = <0x2>;
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&can0>;
+		__overlay__ {
+			status = "okay";
+			xceiver-supply = <&can0_en_reg>;
+		};
+	};
+};
