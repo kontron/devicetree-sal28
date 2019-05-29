@@ -28,9 +28,9 @@
 			};
 
 			wm8904_mclk: wm8904-mclk {
-				compatible = "fixed-clock";
+				compatible = "pwm-clock";
 				#clock-cells = <0>;
-				clock-frequency = <12000000>;
+				pwms = <&pwm0 2 80 0>;
 			};
 
 			sound {
@@ -93,6 +93,13 @@
 
 	fragment@4 {
 		target = <&sai6>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&pwm0>;
 		__overlay__ {
 			status = "okay";
 		};
