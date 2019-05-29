@@ -26,6 +26,27 @@
 					enable-active-high;
 				};
 			};
+
+			wm8904_mclk: wm8904-mclk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <12000000>;
+			};
+
+			sound {
+				compatible = "fsl,imx-audio-wm8904";
+				model = "imx-wm8904";
+				sound-dai = <&sai6>;
+				audio-codec = <&wm8904>;
+				audio-routing =
+					"Headphone Jack", "HPOUTR",
+					"Headphone Jack", "HPOUTL",
+					"IN1L", "Line In Jack",
+					"IN1R", "Line In Jack",
+					"Mic Jack", "MICBIAS",
+					"IN2L", "Mic Jack",
+					"IN2R", "Mic Jack";
+			};
 		};
 	};
 
@@ -47,10 +68,33 @@
 	};
 
 	fragment@2 {
+		target = <&i2c4>;
+
+		__overlay__ {
+			#address-cells = <0x1>;
+			#size-cells = <0x0>;
+
+			wm8904: wm8904@1a {
+				compatible = "wlf,wm8904";
+				reg = <0x1a>;
+				clocks = <&wm8904_mclk>;
+				clock-names = "mclk";
+			};
+		};
+	};
+
+	fragment@3 {
 		target = <&can0>;
 		__overlay__ {
 			status = "okay";
 			xceiver-supply = <&can0_en_reg>;
+		};
+	};
+
+	fragment@4 {
+		target = <&sai6>;
+		__overlay__ {
+			status = "okay";
 		};
 	};
 };
