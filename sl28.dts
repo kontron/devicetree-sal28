@@ -188,10 +188,6 @@
 	status = "okay";
 };
 
-&sai4 {
-	status = "okay";
-};
-
 &dp0 {
 	status = "okay";
 };
