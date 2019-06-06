@@ -82,6 +82,8 @@
 				reg = <0x1a>;
 				clocks = <&wm8904_mclk>;
 				clock-names = "mclk";
+				assigned-clocks = <&wm8904_mclk>;
+				assigned-clock-rates = <12500000>;
 			};
 		};
 	};
