@@ -14,8 +14,8 @@
 			can0_en_reg: can-regulator {
 				compatible = "regulator-fixed";
 				regulator-name = "can0_en";
-				regulator-min-microvolt = <0x1b7740>;
-				regulator-max-microvolt = <0x1b7740>;
+				regulator-min-microvolt = <1800000>;
+				regulator-max-microvolt = <1800000>;
 				gpio = <&pm_gpio 6 0>;
 				enable-active-high;
 			};
@@ -43,8 +43,8 @@
 		target = <&soc>;
 
 		__overlay__ {
-			#address-cells = <0x2>;
-			#size-cells = <0x2>;
+			#address-cells = <2>;
+			#size-cells = <2>;
 
 			wm8904_mclk: wm8904-mclk@f130080 {
 				compatible = "fsl,vf610-sai-clock";
@@ -59,14 +59,14 @@
 		target = <&i2c3>;
 
 		__overlay__ {
-			#address-cells = <0x1>;
-			#size-cells = <0x0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
 
 			pm_gpio: tca9554@22 {
 				compatible = "nxp,pca9554";
 				reg = <0x22>;
 				gpio-controller;
-				#gpio-cells = <0x2>;
+				#gpio-cells = <2>;
 				status = "okay";
 			};
 		};
@@ -76,8 +76,8 @@
 		target = <&i2c4>;
 
 		__overlay__ {
-			#address-cells = <0x1>;
-			#size-cells = <0x0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
 
 			wm8904: wm8904@1a {
 				compatible = "wlf,wm8904";
