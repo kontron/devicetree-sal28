@@ -11,20 +11,13 @@
 	fragment@0 {
 		target-path = "/";
 		__overlay__ {
-			regulators {
-				compatible = "simple-bus";
-				#address-cells = <0x1>;
-				#size-cells = <0x0>;
-
-				can0_en_reg: fixedregulator@0 {
-					compatible = "regulator-fixed";
-					reg = <0>;
-					regulator-name = "CAN0_EN";
-					regulator-min-microvolt = <0x1b7740>;
-					regulator-max-microvolt = <0x1b7740>;
-					gpio = <&pm_gpio 0x6 0x0>;
-					enable-active-high;
-				};
+			can0_en_reg: can-regulator {
+				compatible = "regulator-fixed";
+				regulator-name = "can0_en";
+				regulator-min-microvolt = <0x1b7740>;
+				regulator-max-microvolt = <0x1b7740>;
+				gpio = <&pm_gpio 6 0>;
+				enable-active-high;
 			};
 
 			sound {
