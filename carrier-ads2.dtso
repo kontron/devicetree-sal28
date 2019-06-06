@@ -27,13 +27,6 @@
 				};
 			};
 
-			wm8904_mclk: wm8904-mclk {
-				compatible = "fsl,vf610-sai-clock";
-				reg = <0x0 0xf130080 0x0 0x80>;
-				clocks = <&clockgen 4 1>;
-				#clock-cells = <0>;
-			};
-
 			sound {
 				compatible = "fsl,imx-audio-wm8904";
 				model = "imx-wm8904";
@@ -54,6 +47,22 @@
 	};
 
 	fragment@1 {
+		target = <&soc>;
+
+		__overlay__ {
+			#address-cells = <0x2>;
+			#size-cells = <0x2>;
+
+			wm8904_mclk: wm8904-mclk@f130080 {
+				compatible = "fsl,vf610-sai-clock";
+				reg = <0x0 0xf130080 0x0 0x80>;
+				clocks = <&clockgen 4 1>;
+				#clock-cells = <0>;
+			};
+		};
+	};
+
+	fragment@2 {
 		target = <&i2c3>;
 
 		__overlay__ {
@@ -70,7 +79,7 @@
 		};
 	};
 
-	fragment@2 {
+	fragment@3 {
 		target = <&i2c4>;
 
 		__overlay__ {
@@ -88,7 +97,7 @@
 		};
 	};
 
-	fragment@3 {
+	fragment@4 {
 		target = <&can0>;
 		__overlay__ {
 			status = "okay";
@@ -96,7 +105,7 @@
 		};
 	};
 
-	fragment@4 {
+	fragment@5 {
 		target = <&sai5>;
 		__overlay__ {
 			status = "okay";
@@ -104,7 +113,7 @@
 		};
 	};
 
-	fragment@5 {
+	fragment@6 {
 		target = <&sai6>;
 		__overlay__ {
 			status = "okay";
