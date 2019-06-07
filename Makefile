@@ -4,7 +4,7 @@ DTC := dtc
 PREFIX ?= /usr
 DEVICETREEDIR ?= $(PREFIX)/share/devicetree
 
-DTB_OVERLAYS: sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo carrier-s1914.dtbo carrier-ads2.dtbo
+DTB_OVERLAYS: sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo carrier-s1914.dtbo carrier-ads2.dtbo lvds-display-converter.dtbo
 
 .PHONY: all
 all: $(DTB_OVERLAYS)
@@ -25,3 +25,4 @@ install-overlays: $(DTB_OVERLAYS)
 	install -D sl28-variant4.dtbo $(DEVICETREEDIR)/sl28-variant4.dtbo
 	install -D carrier-s1914.dtbo $(DEVICETREEDIR)/carrier-s1914.dtbo
 	install -D carrier-ads2.dtbo $(DEVICETREEDIR)/carrier-ads2.dtbo
+	install -D lvds-display-converter.dtbo $(DEVICETREEDIR)/lvds-display-converter.dtbo
