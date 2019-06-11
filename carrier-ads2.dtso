@@ -87,6 +87,11 @@
 				assigned-clocks = <&wm8904_mclk>;
 				assigned-clock-rates = <12500000>;
 			};
+
+			eeprom@57 {
+				compatible = "atmel,24c64";
+				reg = <0x57>;
+			};
 		};
 	};
 
