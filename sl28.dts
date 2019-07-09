@@ -316,7 +316,7 @@
 				};
 
 				ddrc_crit: ddrc-crit {
-					temperature = <95000>;
+					temperature = <105000>;
 					hysteresis = <2000>;
 					type = "critical";
 				};
@@ -343,7 +343,7 @@
 				};
 
 				cpu_crit: cpu-crit {
-					temperature = <95000>;
+					temperature = <105000>;
 					hysteresis = <2000>;
 					type = "critical";
 				};
