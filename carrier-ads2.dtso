@@ -36,6 +36,15 @@
 					"IN2L", "Mic Jack",
 					"IN2R", "Mic Jack";
 			};
+
+			fan0: pwm-fan {
+					compatible = "pwm-fan";
+					cooling-min-state = <0>;
+					cooling-max-state = <3>;
+					#cooling-cells = <2>;
+					pwms = <&pwm1 0 4000000>;
+					cooling-levels = <1 128 192 255>;
+			};
 		};
 	};
 
@@ -116,6 +125,87 @@
 		__overlay__ {
 			status = "okay";
 			fsl,sai-asynchronous;
+		};
+	};
+
+	fragment@7 {
+		target = <&ddrc_thermal>;
+		__overlay__ {
+			trips {
+				ddrc_alert0: ddrc-alert0 {
+					temperature = <55000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+
+				ddrc_alert1: ddrc-alert1 {
+					temperature = <65000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+
+				ddrc_alert2: ddrc-alert2 {
+					temperature = <75000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+
+			};
+
+			cooling-maps {
+				map1 {
+					trip = <&ddrc_alert0>;
+					cooling-device = <&fan0 0 1>;
+				};
+				map2 {
+					trip = <&ddrc_alert1>;
+					cooling-device = <&fan0 1 2>;
+				};
+				map3 {
+					trip = <&ddrc_alert2>;
+					cooling-device = <&fan0 2 3>;
+				};
+			};
+		};
+	};
+
+	fragment@8 {
+		target = <&cpu_thermal>;
+		__overlay__ {
+			trips {
+				cpu_alert0: cpu-alert0 {
+					temperature = <55000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+
+				cpu_alert1: cpu-alert1 {
+					temperature = <65000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+
+				cpu_alert2: cpu-alert2 {
+					temperature = <75000>;
+					hysteresis = <2000>;
+					type = "active";
+				};
+			};
+
+			cooling-maps {
+				map1 {
+					trip = <&cpu_alert0>;
+					cooling-device = <&fan0 0 1>;
+				};
+				map2 {
+					trip = <&cpu_alert1>;
+					cooling-device = <&fan0 1 2>;
+				};
+				map3 {
+					trip = <&cpu_alert2>;
+					cooling-device = <&fan0 2 3>;
+				};
+			};
 		};
 	};
 };
