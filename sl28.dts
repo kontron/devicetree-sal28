@@ -62,12 +62,14 @@
 			reg = <0xb>;
 		};
 
-		pwm0@c {
+		pwm1: pwm0@c {
+			#pwm-cells = <2>;
 			compatible = "kontron,sl28cpld-pwm";
 			reg = <0xc>;
 		};
 
-		pwm1@e {
+		pwm2: pwm1@e {
+			#pwm-cells = <2>;
 			compatible = "kontron,sl28cpld-pwm";
 			reg = <0xe>;
 		};
