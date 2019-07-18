@@ -55,6 +55,8 @@
 		gpi0@9 {
 			compatible = "kontron,sl28cpld-gpi";
 			reg = <0x9>;
+			gpio-controller;
+			#gpio-cells = <2>;
 		};
 
 		fan@b {
@@ -77,21 +79,29 @@
 		gpio0@10 {
 			compatible = "kontron,sl28cpld-gpio";
 			reg = <0x10>;
+			gpio-controller;
+			#gpio-cells = <2>;
 		};
 
 		gpio1@13 {
 			compatible = "kontron,sl28cpld-gpio";
 			reg = <0x13>;
+			gpio-controller;
+			#gpio-cells = <2>;
 		};
 
 		gpo0@16 {
 			compatible = "kontron,sl28cpld-gpo";
 			reg = <0x16>;
+			gpio-controller;
+			#gpio-cells = <2>;
 		};
 
 		gpo1@17 {
 			compatible = "kontron,sl28cpld-gpo";
 			reg = <0x17>;
+			gpio-controller;
+			#gpio-cells = <2>;
 		};
 	};
 
