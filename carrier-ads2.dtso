@@ -208,4 +208,18 @@
 			};
 		};
 	};
+
+	fragment@9 {
+		target = <&dspi2>;
+		__overlay__ {
+			status = "okay";
+			bus-num = <3>;
+			w25q128fw@0 {
+				compatible = "jedec,spi-nor";
+				m25p,fast-read;
+				spi-max-frequency = <100000000>;
+				reg = <0>;
+			};
+		};
+	};
 };
