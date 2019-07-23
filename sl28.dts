@@ -4,6 +4,7 @@
 
 /dts-v1/;
 #include "freescale/fsl-ls1028a.dtsi"
+#include <dt-bindings/gpio/gpio.h>
 
 / {
 	model = "Kontron SMARC-sAL28";
@@ -17,6 +18,11 @@
 
 	chosen {
 		stdout-path = "serial0:115200n8";
+	};
+
+	emmc_pwrseq: emmc-pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		reset-gpios = <&cpld_gpo0 2 GPIO_ACTIVE_LOW>;
 	};
 };
 
@@ -32,6 +38,7 @@
 	status = "okay";
 	bus-width = <8>;
 	mmc-hs200-1_8v;
+	mmc-pwrseq = <&emmc_pwrseq>;
 };
 
 &i2c0 {
@@ -69,28 +76,28 @@
 			reg = <0xe>;
 		};
 
-		gpio0@10 {
+		cpld_gpio0: gpio0@10 {
 			compatible = "kontron,sl28cpld-gpio";
 			reg = <0x10>;
 			gpio-controller;
 			#gpio-cells = <2>;
 		};
 
-		gpio1@13 {
+		cpld_gpio1: gpio1@13 {
 			compatible = "kontron,sl28cpld-gpio";
 			reg = <0x13>;
 			gpio-controller;
 			#gpio-cells = <2>;
 		};
 
-		gpo0@16 {
+		cpld_gpo0: gpo0@16 {
 			compatible = "kontron,sl28cpld-gpo";
 			reg = <0x16>;
 			gpio-controller;
 			#gpio-cells = <2>;
 		};
 
-		gpi0@17 {
+		cpld_gpi0: gpi0@17 {
 			compatible = "kontron,sl28cpld-gpi";
 			reg = <0x17>;
 			gpio-controller;
