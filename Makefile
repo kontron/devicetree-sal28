@@ -4,10 +4,12 @@ DTC := dtc
 PREFIX ?= /usr
 DEVICETREEDIR ?= $(PREFIX)/share/devicetree
 
-DTB_OVERLAYS: sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo carrier-s1914.dtbo carrier-ads2.dtbo lvds-display-converter.dtbo
+OVERLAYS := sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo
+OVERLAYS += carrier-s1914.dtbo carrier-ads2.dtbo
+OVERLAYS += lvds-display-converter.dtbo emdedded-display-port.dtbo
 
 .PHONY: all
-all: $(DTB_OVERLAYS)
+all: $(OVERLAYS)
 
 %.dtbo: %.dtso
 	$(DTC) -@ -I dts -O dtb -o $@ $<
@@ -16,8 +18,8 @@ all: $(DTB_OVERLAYS)
 clean:
 	rm -f *.dtbo
 
-.PHONY: $(DTB_OVERLAYS) install-overlays
-install-overlays: $(DTB_OVERLAYS)
+.PHONY: install-overlays
+install-overlays: $(OVERLAYS)
 	install -d -m 0755 $(DEVICETREEDIR)
 	install -D sl28-variant1.dtbo $(DEVICETREEDIR)/sl28-variant1.dtbo
 	install -D sl28-variant2.dtbo $(DEVICETREEDIR)/sl28-variant2.dtbo
@@ -26,3 +28,4 @@ install-overlays: $(DTB_OVERLAYS)
 	install -D carrier-s1914.dtbo $(DEVICETREEDIR)/carrier-s1914.dtbo
 	install -D carrier-ads2.dtbo $(DEVICETREEDIR)/carrier-ads2.dtbo
 	install -D lvds-display-converter.dtbo $(DEVICETREEDIR)/lvds-display-converter.dtbo
+	install -D embedded-display-port.dtbo $(DEVICETREEDIR)/embedded-display-port.dtbo
