@@ -81,6 +81,11 @@
 			reg = <0x10>;
 			gpio-controller;
 			#gpio-cells = <2>;
+			gpio-line-names =
+				"GPIO0_CAM0_PWR_N", "GPIO1_CAM1_PWR_N",
+				"GPIO2_CAM0_RST_N", "GPIO3_CAM1_RST_N",
+				"GPIO4_HDA_RST_N", "GPIO5_PWM_OUT",
+				"GPIO6_TACHIN", "GPIO7";
 		};
 
 		cpld_gpio1: gpio1@13 {
@@ -88,6 +93,9 @@
 			reg = <0x13>;
 			gpio-controller;
 			#gpio-cells = <2>;
+			gpio-line-names =
+				"GPIO8", "GPIO9", "GPIO10", "GPIO11",
+				"", "", "", "";
 		};
 
 		cpld_gpo0: gpo0@16 {
@@ -95,6 +103,11 @@
 			reg = <0x16>;
 			gpio-controller;
 			#gpio-cells = <2>;
+			gpio-line-names =
+				"LCD0 voltage enable", "LCD0 backlight enable",
+				"eMMC reset", "LVDS bridge reset",
+				"LVDS bridge power-down", "SDIO power enable",
+				"", "";
 		};
 
 		cpld_gpi0: gpi0@17 {
@@ -102,6 +115,9 @@
 			reg = <0x17>;
 			gpio-controller;
 			#gpio-cells = <2>;
+			gpio-line-names =
+				"Power button", "Force recovery", "Sleep", "Battery low",
+				"Lid state", "Charging", "Charger present", "";
 		};
 	};
 
@@ -272,4 +288,20 @@
 
 &sata {
 	status = "okay";
+};
+
+&gpio0 {
+	gpio-line-names =
+		"", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "TDO", "TCK",
+		"", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "";
+};
+
+&gpio1 {
+	gpio-line-names =
+		"", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "TMS", "TDI";
 };
