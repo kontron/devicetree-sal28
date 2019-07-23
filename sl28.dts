@@ -146,7 +146,7 @@
 	w25q32jw@0 {
 		#address-cells = <1>;
 		#size-cells = <1>;
-		compatible = "micron,m25p80";
+		compatible = "w25q32jw", "jedec,spi-nor";
 		m25p,fast-read;
 		spi-max-frequency = <133000000>;
 		reg = <0>;
