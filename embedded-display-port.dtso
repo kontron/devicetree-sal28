@@ -19,13 +19,13 @@
 
 			backlight {
 				compatible = "pwm-backlight";
-				pwms = <&pwm2 0 4000000>;
+				pwms = <&pwm1 0 4000000>;
 
 				brightness-levels = <0 4 8 16 32 64 128 255>;
 				default-brightness-level = <6>;
 
 				power-supply = <&vdd_bl_reg>;
-				enable-gpios = <&gpo0 1 0>;
+				enable-gpios = <&cpld_gpo0 1 0>;
 			};
 		};
 	};
