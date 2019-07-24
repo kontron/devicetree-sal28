@@ -6,7 +6,7 @@ DEVICETREEDIR ?= $(PREFIX)/share/devicetree
 
 OVERLAYS := sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo
 OVERLAYS += carrier-s1914.dtbo carrier-ads2.dtbo
-OVERLAYS += lvds-display-converter.dtbo emdedded-display-port.dtbo
+OVERLAYS += lvds-display-converter.dtbo embedded-display-port.dtbo
 
 .PHONY: all
 all: $(OVERLAYS)
