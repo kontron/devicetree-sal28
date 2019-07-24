@@ -212,9 +212,13 @@
 	fragment@9 {
 		target = <&dspi2>;
 		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
 			status = "okay";
 			bus-num = <3>;
 			w25q128fw@0 {
+				#address-cells = <1>;
+				#size-cells = <1>;
 				compatible = "jedec,spi-nor";
 				m25p,fast-read;
 				spi-max-frequency = <100000000>;
