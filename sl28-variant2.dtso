@@ -9,20 +9,34 @@
 	compatible = "kontron,sl28", "fsl,ls1028a";
 
 	fragment@0 {
+		target = <&mdio0>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			phy1: ethernet-phy@4 {
+				reg = <0x4>;
+				// Atheros PHY on RDB seems to cause traffic loss @ 1Gbps w EEE
+				eee-broken-1000t;
+			};
+		};
+	};
+
+	fragment@1 {
 		target = <&enetc_port0>;
 		__overlay__ {
 			status = "disabled";
 		};
 	};
 
-	fragment@1 {
+	fragment@2 {
 		target = <&enetc_port2>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@2 {
+	fragment@3 {
 		target = <&switch_port0>;
 		__overlay__ {
 			phy-handle = <&phy0>;
@@ -31,7 +45,7 @@
 		};
 	};
 
-	fragment@3 {
+	fragment@4 {
 		target = <&switch_port1>;
 		__overlay__ {
 			phy-handle = <&phy1>;
@@ -40,7 +54,7 @@
 		};
 	};
 
-	fragment@4 {
+	fragment@5 {
 		target = <&switch_port4>;
 		__overlay__ {
 			status = "okay";
