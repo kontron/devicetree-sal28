@@ -1,0 +1,41 @@
+/*
+ * Device Tree Include file for Kontron SMARC-sAL28.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target = "&sl28cpld";
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
+		target = "&emmc_pwrseq";
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = "&esdhc1";
+
+		__overlay__ {
+			/*
+			 * Here be dragons!
+			 * We actually need to remove the reference to the emmc_pwrseq
+			 * node, but unfortunately, overlays cannot remove properties.
+			 * Therefore, we set the property value with an empty one. This
+			 * works by coincidence.
+			 */
+			mmc-pwrseq = <0>;
+		};
+	};
+};
