@@ -30,3 +30,4 @@ install-overlays: $(OVERLAYS)
 	install -D carrier-ads2.dtbo $(DEVICETREEDIR)/carrier-ads2.dtbo
 	install -D lvds-display-converter.dtbo $(DEVICETREEDIR)/lvds-display-converter.dtbo
 	install -D embedded-display-port.dtbo $(DEVICETREEDIR)/embedded-display-port.dtbo
+	install -D no-cpld.dtbo $(DEVICETREEDIR)/no-cpld.dtbo
