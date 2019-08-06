@@ -9,6 +9,25 @@
 	compatible = "kontron,sl28", "fsl,ls1028a";
 
 	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			leds {
+				compatible = "gpio-leds";
+
+				user_yellow {
+					label = "s1914:yellow:user";
+					gpios = <&cpld_gpio0 0 0>;
+				};
+
+				user_green {
+					label = "s1914:green:user";
+					gpios = <&cpld_gpio1 3 0>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
 		target = <&mdio0>;
 		__overlay__ {
 			#address-cells = <1>;
@@ -32,21 +51,21 @@
 		};
 	};
 
-	fragment@1 {
+	fragment@2 {
 		target = <&enetc_port2>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@2 {
+	fragment@3 {
 		target = <&enetc_port3>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@3 {
+	fragment@4 {
 		target = <&switch_port0>;
 		__overlay__ {
 			phy-handle = <&qphy0>;
@@ -55,7 +74,7 @@
 		};
 	};
 
-	fragment@4 {
+	fragment@5 {
 		target = <&switch_port1>;
 		__overlay__ {
 			phy-handle = <&qphy1>;
@@ -64,7 +83,7 @@
 		};
 	};
 
-	fragment@5 {
+	fragment@6 {
 		target = <&switch_port2>;
 		__overlay__ {
 			phy-handle = <&qphy2>;
@@ -73,7 +92,7 @@
 		};
 	};
 
-	fragment@6 {
+	fragment@7 {
 		target = <&switch_port3>;
 		__overlay__ {
 			phy-handle = <&qphy3>;
@@ -82,21 +101,21 @@
 		};
 	};
 
-	fragment@7 {
+	fragment@8 {
 		target = <&switch_port4>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@8 {
+	fragment@9 {
 		target = <&switch_port5>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@9 {
+	fragment@10 {
 		target = <&i2c4>;
 		__overlay__ {
 			#address-cells = <1>;
