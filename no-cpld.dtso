@@ -9,7 +9,7 @@
 	compatible = "kontron,sl28", "fsl,ls1028a";
 
 	fragment@0 {
-		target = "&sl28cpld";
+		target = <&sl28cpld>;
 
 		__overlay__ {
 			status = "disabled";
@@ -17,7 +17,7 @@
 	};
 
 	fragment@1 {
-		target = "&emmc_pwrseq";
+		target = <&emmc_pwrseq>;
 
 		__overlay__ {
 			status = "disabled";
@@ -25,7 +25,7 @@
 	};
 
 	fragment@2 {
-		target = "&esdhc1";
+		target = <&esdhc1>;
 
 		__overlay__ {
 			/*
