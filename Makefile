@@ -6,6 +6,7 @@ DEVICETREEDIR ?= $(PREFIX)/share/devicetree
 
 OVERLAYS := sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-variant4.dtbo
 OVERLAYS += carrier-s1914.dtbo carrier-ads2.dtbo
+OVERLAYS += carrier-s1914-ser0-rs232.dtbo carrier-s1914-ser0-rs485.dtbo carrier-s1914-ser0-rs485-fd.dtbo
 OVERLAYS += lvds-display-converter.dtbo embedded-display-port.dtbo
 OVERLAYS += no-cpld.dtbo
 
@@ -21,13 +22,6 @@ clean:
 
 .PHONY: install-overlays
 install-overlays: $(OVERLAYS)
-	install -d -m 0755 $(DEVICETREEDIR)
-	install -D sl28-variant1.dtbo $(DEVICETREEDIR)/sl28-variant1.dtbo
-	install -D sl28-variant2.dtbo $(DEVICETREEDIR)/sl28-variant2.dtbo
-	install -D sl28-variant3.dtbo $(DEVICETREEDIR)/sl28-variant3.dtbo
-	install -D sl28-variant4.dtbo $(DEVICETREEDIR)/sl28-variant4.dtbo
-	install -D carrier-s1914.dtbo $(DEVICETREEDIR)/carrier-s1914.dtbo
-	install -D carrier-ads2.dtbo $(DEVICETREEDIR)/carrier-ads2.dtbo
-	install -D lvds-display-converter.dtbo $(DEVICETREEDIR)/lvds-display-converter.dtbo
-	install -D embedded-display-port.dtbo $(DEVICETREEDIR)/embedded-display-port.dtbo
-	install -D no-cpld.dtbo $(DEVICETREEDIR)/no-cpld.dtbo
+	for o in $(OVERLAYS); do \
+		install -D -m644 $$o $(DEVICETREEDIR)/$$o; \
+	done
