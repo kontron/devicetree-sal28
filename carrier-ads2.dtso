@@ -11,11 +11,9 @@
 	fragment@0 {
 		target-path = "/";
 		__overlay__ {
-			can0_en_reg: can-regulator {
+			can0_en_reg: can0-regulator {
 				compatible = "regulator-fixed";
 				regulator-name = "can0_en";
-				regulator-min-microvolt = <1800000>;
-				regulator-max-microvolt = <1800000>;
 				gpio = <&pm_gpio 6 0>;
 				enable-active-high;
 			};

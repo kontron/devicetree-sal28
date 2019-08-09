@@ -24,6 +24,12 @@
 					gpios = <&cpld_gpio1 3 0>;
 				};
 			};
+
+			can0_en_reg: can0-regulator {
+				compatible = "regulator-fixed";
+				regulator-name = "can0_en";
+				gpio = <&cpld_gpio0 4 0>;
+			};
 		};
 	};
 
@@ -128,4 +134,3 @@
 		};
 	};
 };
-
