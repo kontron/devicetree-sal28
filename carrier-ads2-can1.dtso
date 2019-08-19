@@ -12,6 +12,7 @@
 		target = <&can1>;
 		__overlay__ {
 			status = "okay";
+			xceiver-supply = <&can1_en_reg>;
 		};
 	};
 

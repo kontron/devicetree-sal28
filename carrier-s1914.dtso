@@ -133,4 +133,12 @@
 			};
 		};
 	};
+
+	fragment@11 {
+		target = <&can0>;
+		__overlay__ {
+			status = "okay";
+			xceiver-supply = <&can0_en_reg>;
+		};
+	};
 };
