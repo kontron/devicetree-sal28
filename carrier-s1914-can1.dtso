@@ -9,14 +9,6 @@
 	compatible = "kontron,sl28", "fsl,ls1028a";
 
 	fragment@0 {
-		target = <&can1>;
-		__overlay__ {
-			status = "okay";
-			xceiver-supply = <&can1_en_reg>;
-		};
-	};
-
-	fragment@1 {
 		target-path = "/";
 		__overlay__ {
 			can1_en_reg: can1-regulator {
@@ -27,4 +19,11 @@
 		};
 	};
 
+	fragment@1 {
+		target = <&can1>;
+		__overlay__ {
+			status = "okay";
+			xceiver-supply = <&can1_en_reg>;
+		};
+	};
 };
