@@ -14,7 +14,7 @@
 		__overlay__ {
 			rs485_mode_enable {
 				gpio-hog;
-				gpios = <0 0>;
+				gpios = <1 0>;
 				output-low;
 			};
 		};

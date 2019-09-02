@@ -12,16 +12,16 @@
 		target = <&cpld_gpio1>;
 
 		__overlay__ {
-			rs485_mode_enable {
-				gpio-hog;
-				gpios = <0 0>;
-				output-high;
-			};
-
 			rs485_half_duplex_enable {
 				gpio-hog;
-				gpios = <1 0>;
+				gpios = <0 0>;
 				output-low;
+			};
+
+			rs485_mode_enable {
+				gpio-hog;
+				gpios = <1 0>;
+				output-high;
 			};
 
 			rs485_rx_permanently_enable {
