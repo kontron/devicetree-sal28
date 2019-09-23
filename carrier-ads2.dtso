@@ -76,6 +76,11 @@
 				#gpio-cells = <2>;
 				status = "okay";
 			};
+
+			eeprom@57 {
+				compatible = "atmel,24c64";
+				reg = <0x57>;
+			};
 		};
 	};
 
@@ -93,11 +98,6 @@
 				clock-names = "mclk";
 				assigned-clocks = <&wm8904_mclk>;
 				assigned-clock-rates = <1250000>;
-			};
-
-			eeprom@57 {
-				compatible = "atmel,24c64";
-				reg = <0x57>;
 			};
 		};
 	};
