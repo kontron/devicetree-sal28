@@ -14,7 +14,7 @@
 			can0_en_reg: can0-regulator {
 				compatible = "regulator-fixed";
 				regulator-name = "can0_en";
-				gpio = <&pm_gpio 6 0>;
+				gpio = <&carrier_gpio0 6 0>;
 				enable-active-high;
 			};
 
@@ -69,9 +69,17 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			pm_gpio: tca9554@22 {
+			carrier_gpio0: tca9554@22 {
 				compatible = "nxp,pca9554";
 				reg = <0x22>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				status = "okay";
+			};
+
+			carrier_gpio1: tca9554@24 {
+				compatible = "nxp,pca9554";
+				reg = <0x24>;
 				gpio-controller;
 				#gpio-cells = <2>;
 				status = "okay";
@@ -98,6 +106,14 @@
 				clock-names = "mclk";
 				assigned-clocks = <&wm8904_mclk>;
 				assigned-clock-rates = <1250000>;
+			};
+
+			carrier_gpio2: tca9554@20 {
+				compatible = "nxp,pca9554";
+				reg = <0x20>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				status = "okay";
 			};
 		};
 	};
