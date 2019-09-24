@@ -12,21 +12,13 @@
 		target = <&can1>;
 		__overlay__ {
 			status = "okay";
-			xceiver-supply = <&can1_en_reg>;
 		};
 	};
 
 	fragment@1 {
-		target-path = "/";
+		target = <&i2c4>;
 		__overlay__ {
-			can1_en_reg: can1-regulator {
-				compatible = "regulator-fixed";
-				regulator-name = "can1_en";
-				gpio = <&pm_gpio 7 0>;
-				enable-active-high;
-			};
+			status = "disabled";
 		};
 	};
-
 };
-

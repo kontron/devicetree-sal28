@@ -36,10 +36,11 @@ update. By default, the device tree contains nodes for the CPLD. Loading
 `no-cpld.dtso` disables all CPLD devices in the device tree. Thus, the
 GPIOs are free again and can be used to update the CPLD.
 
-### SMARC evaluation carrier 2.0 specific overlays
+### CAN1
 
-If the module supports it you can enable the second CAN port by loading
-`carrier-ads2-can1.dtso`.
+The second CAN port can be enabled if both the carrier and the module
+supports it. Load `can1.dtso` to enable it. Please note, that this also
+requires a modified RCW, because CAN1 shares pins with the I²C PM bus.
 
 ### KBox A-230-LS carrier specific overlays
 

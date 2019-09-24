@@ -30,6 +30,12 @@
 				regulator-name = "can0_en";
 				gpio = <&cpld_gpio0 4 0>;
 			};
+
+			can1_en_reg: can1-regulator {
+				compatible = "regulator-fixed";
+				regulator-name = "can1_en";
+				gpio = <&cpld_gpio0 5 0>;
+			};
 		};
 	};
 
@@ -139,6 +145,13 @@
 		__overlay__ {
 			status = "okay";
 			xceiver-supply = <&can0_en_reg>;
+		};
+	};
+
+	fragment@12 {
+		target = <&can1>;
+		__overlay__ {
+			xceiver-supply = <&can1_en_reg>;
 		};
 	};
 };

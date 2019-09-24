@@ -18,6 +18,13 @@
 				enable-active-high;
 			};
 
+			can1_en_reg: can1-regulator {
+				compatible = "regulator-fixed";
+				regulator-name = "can1_en";
+				gpio = <&carrier_gpio0 7 0>;
+				enable-active-high;
+			};
+
 			sound {
 				compatible = "fsl,imx-audio-wm8904";
 				model = "imx-wm8904";
@@ -127,6 +134,13 @@
 	};
 
 	fragment@5 {
+		target = <&can1>;
+		__overlay__ {
+			xceiver-supply = <&can1_en_reg>;
+		};
+	};
+
+	fragment@6 {
 		target = <&sai5>;
 		__overlay__ {
 			status = "okay";
@@ -134,7 +148,7 @@
 		};
 	};
 
-	fragment@6 {
+	fragment@7 {
 		target = <&sai6>;
 		__overlay__ {
 			status = "okay";
@@ -142,7 +156,7 @@
 		};
 	};
 
-	fragment@7 {
+	fragment@8 {
 		target = <&ddrc_thermal>;
 		__overlay__ {
 			trips {
@@ -183,7 +197,7 @@
 		};
 	};
 
-	fragment@8 {
+	fragment@9 {
 		target = <&cpu_thermal>;
 		__overlay__ {
 			trips {
@@ -223,7 +237,7 @@
 		};
 	};
 
-	fragment@9 {
+	fragment@10 {
 		target = <&dspi2>;
 		__overlay__ {
 			#address-cells = <1>;
