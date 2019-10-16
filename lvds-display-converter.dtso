@@ -9,7 +9,7 @@
 	compatible = "kontron,sl28", "fsl,ls1028a";
 
 	fragment@0 {
-		target = <&edp>;
+		target = <&display1>;
 
 		__overlay__ {
 			#address-cells = <0x1>;
@@ -22,5 +22,4 @@
 			edp_num_lanes = <0x2>;
 		};
 	};
-
 };

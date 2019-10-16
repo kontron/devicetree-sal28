@@ -157,87 +157,49 @@
 	};
 
 	fragment@8 {
-		target = <&ddrc_thermal>;
+		target = <&tmu>;
 		__overlay__ {
-			trips {
-				ddrc_alert0: ddrc-alert0 {
-					temperature = <55000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
+			thermal-zones {
+				core-cluster {
+					trips {
+						cpu_alert0: cpu-alert0 {
+							temperature = <55000>;
+							hysteresis = <2000>;
+							type = "active";
+						};
 
-				ddrc_alert1: ddrc-alert1 {
-					temperature = <65000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
+						cpu_alert1: cpu-alert1 {
+							temperature = <65000>;
+							hysteresis = <2000>;
+							type = "active";
+						};
 
-				ddrc_alert2: ddrc-alert2 {
-					temperature = <75000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
-
-			};
-
-			cooling-maps {
-				map1 {
-					trip = <&ddrc_alert0>;
-					cooling-device = <&fan0 0 1>;
-				};
-				map2 {
-					trip = <&ddrc_alert1>;
-					cooling-device = <&fan0 1 2>;
-				};
-				map3 {
-					trip = <&ddrc_alert2>;
-					cooling-device = <&fan0 2 3>;
+						cpu_alert2: cpu-alert2 {
+							temperature = <75000>;
+							hysteresis = <2000>;
+							type = "active";
+						};
+					};
+					cooling-maps {
+						map1 {
+							trip = <&cpu_alert0>;
+							cooling-device = <&fan0 0 1>;
+						};
+						map2 {
+							trip = <&cpu_alert1>;
+							cooling-device = <&fan0 1 2>;
+						};
+						map3 {
+							trip = <&cpu_alert2>;
+							cooling-device = <&fan0 2 3>;
+						};
+					};
 				};
 			};
 		};
 	};
 
 	fragment@9 {
-		target = <&cpu_thermal>;
-		__overlay__ {
-			trips {
-				cpu_alert0: cpu-alert0 {
-					temperature = <55000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
-
-				cpu_alert1: cpu-alert1 {
-					temperature = <65000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
-
-				cpu_alert2: cpu-alert2 {
-					temperature = <75000>;
-					hysteresis = <2000>;
-					type = "active";
-				};
-			};
-
-			cooling-maps {
-				map1 {
-					trip = <&cpu_alert0>;
-					cooling-device = <&fan0 0 1>;
-				};
-				map2 {
-					trip = <&cpu_alert1>;
-					cooling-device = <&fan0 1 2>;
-				};
-				map3 {
-					trip = <&cpu_alert2>;
-					cooling-device = <&fan0 2 3>;
-				};
-			};
-		};
-	};
-
-	fragment@10 {
 		target = <&dspi2>;
 		__overlay__ {
 			#address-cells = <1>;
