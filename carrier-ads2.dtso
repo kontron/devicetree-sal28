@@ -157,7 +157,7 @@
 	};
 
 	fragment@8 {
-		target = <&tmu>;
+		target = <&soc>;
 		__overlay__ {
 			thermal-zones {
 				core-cluster {
