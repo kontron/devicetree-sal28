@@ -37,7 +37,14 @@
 	};
 
 	fragment@4 {
-		target = <&switch_port0>;
+		target = <&mscc_felix>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&mscc_felix_port0>;
 		__overlay__ {
 			phy-handle = <&phy0>;
 			phy-connection-type = "sgmii";
@@ -45,8 +52,8 @@
 		};
 	};
 
-	fragment@5 {
-		target = <&switch_port1>;
+	fragment@6 {
+		target = <&mscc_felix_port1>;
 		__overlay__ {
 			phy-handle = <&phy1>;
 			phy-connection-type = "sgmii";
@@ -54,15 +61,15 @@
 		};
 	};
 
-	fragment@6 {
-		target = <&switch_port4>;
+	fragment@7 {
+		target = <&mscc_felix_port4>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@7 {
-		target = <&switch_port5>;
+	fragment@8 {
+		target = <&mscc_felix_port5>;
 		__overlay__ {
 			status = "okay";
 		};

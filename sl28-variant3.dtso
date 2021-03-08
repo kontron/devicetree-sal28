@@ -12,7 +12,6 @@
 		target = <&sai5>;
 		__overlay__ {
 			status = "okay";
-			fsl,sai-asynchronous;
 		};
 	};
 
@@ -20,7 +19,6 @@
 		target = <&sai6>;
 		__overlay__ {
 			status = "okay";
-			fsl,sai-asynchronous;
 		};
 	};
 };
