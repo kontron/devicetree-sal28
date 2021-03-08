@@ -7,4 +7,20 @@
 
 / {
 	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target = <&sai5>;
+		__overlay__ {
+			status = "okay";
+			fsl,sai-asynchronous;
+		};
+	};
+
+	fragment@1 {
+		target = <&sai6>;
+		__overlay__ {
+			status = "okay";
+			fsl,sai-asynchronous;
+		};
+	};
 };

@@ -141,22 +141,6 @@
 	};
 
 	fragment@6 {
-		target = <&sai5>;
-		__overlay__ {
-			status = "okay";
-			fsl,sai-asynchronous;
-		};
-	};
-
-	fragment@7 {
-		target = <&sai6>;
-		__overlay__ {
-			status = "okay";
-			fsl,sai-asynchronous;
-		};
-	};
-
-	fragment@8 {
 		target = <&soc>;
 		__overlay__ {
 			thermal-zones {
@@ -199,7 +183,7 @@
 		};
 	};
 
-	fragment@9 {
+	fragment@7 {
 		target = <&dspi2>;
 		__overlay__ {
 			#address-cells = <1>;
