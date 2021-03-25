@@ -23,12 +23,6 @@ The board provides a display port which can also be used as a embedded
 display port. Loading `embedded-display-port.dtso` reconfigures the port as
 eDP.
 
-### LVDS port
-
-The board also provides an optional LVDS output. There are variants of the
-board which have an eDP-to-LVDS bridge. Load `lvds-display-converter.dtso`
-to enable support for this bridge and the LVDS output.
-
 ### CPLD update mode
 
 Due to pin restrictions the CPLD shares GPIOs which are needed during CPLD
