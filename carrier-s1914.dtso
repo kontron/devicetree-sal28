@@ -71,20 +71,13 @@
 	};
 
 	fragment@3 {
-		target = <&enetc_port3>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@4 {
 		target = <&mscc_felix>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@5 {
+	fragment@4 {
 		target = <&mscc_felix_port0>;
 		__overlay__ {
 			phy-handle = <&qphy0>;
@@ -93,7 +86,7 @@
 		};
 	};
 
-	fragment@6 {
+	fragment@5 {
 		target = <&mscc_felix_port1>;
 		__overlay__ {
 			phy-handle = <&qphy1>;
@@ -102,7 +95,7 @@
 		};
 	};
 
-	fragment@7 {
+	fragment@6 {
 		target = <&mscc_felix_port2>;
 		__overlay__ {
 			phy-handle = <&qphy2>;
@@ -111,7 +104,7 @@
 		};
 	};
 
-	fragment@8 {
+	fragment@7 {
 		target = <&mscc_felix_port3>;
 		__overlay__ {
 			phy-handle = <&qphy3>;
@@ -120,21 +113,14 @@
 		};
 	};
 
-	fragment@9 {
+	fragment@8 {
 		target = <&mscc_felix_port4>;
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@10 {
-		target = <&mscc_felix_port5>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@11 {
+	fragment@9 {
 		target = <&i2c3>;
 		__overlay__ {
 			#address-cells = <1>;
@@ -147,7 +133,7 @@
 		};
 	};
 
-	fragment@12 {
+	fragment@10 {
 		target = <&can0>;
 		__overlay__ {
 			status = "okay";
@@ -155,7 +141,7 @@
 		};
 	};
 
-	fragment@13 {
+	fragment@11 {
 		target = <&can1>;
 		__overlay__ {
 			xceiver-supply = <&can1_en_reg>;

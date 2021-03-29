@@ -1,0 +1,25 @@
+/*
+ * Device Tree Include file for Kontron SMARC-sAL28.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "kontron,sl28", "fsl,ls1028a";
+
+	fragment@0 {
+		target = <&enetc_port3>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&mscc_felix_port5>;
+		__overlay__ {
+			label = "swp5";
+			status = "okay";
+		};
+	};
+};
