@@ -82,6 +82,7 @@
 		__overlay__ {
 			phy-handle = <&qphy0>;
 			phy-connection-type = "qsgmii";
+			managed = "in-band-status";
 			status = "okay";
 		};
 	};
@@ -91,6 +92,7 @@
 		__overlay__ {
 			phy-handle = <&qphy1>;
 			phy-connection-type = "qsgmii";
+			managed = "in-band-status";
 			status = "okay";
 		};
 	};
@@ -100,6 +102,7 @@
 		__overlay__ {
 			phy-handle = <&qphy2>;
 			phy-connection-type = "qsgmii";
+			managed = "in-band-status";
 			status = "okay";
 		};
 	};
@@ -109,6 +112,7 @@
 		__overlay__ {
 			phy-handle = <&qphy3>;
 			phy-connection-type = "qsgmii";
+			managed = "in-band-status";
 			status = "okay";
 		};
 	};
