@@ -8,6 +8,7 @@ OVERLAYS := sl28-variant1.dtbo sl28-variant2.dtbo sl28-variant3.dtbo sl28-varian
 OVERLAYS += carrier-s1914.dtbo carrier-ads2.dtbo
 OVERLAYS += carrier-s1914-ser0-rs232.dtbo carrier-s1914-ser0-rs485.dtbo carrier-s1914-ser0-rs485-fd.dtbo
 OVERLAYS += embedded-display-port.dtbo no-cpld.dtbo can1.dtbo eno3-swp5.dtbo
+OVERLAYS += i2c-gp-400khz.dtbo i2c-pm-400khz.dtbo
 
 .PHONY: all
 all: $(OVERLAYS)

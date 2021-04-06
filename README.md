@@ -36,6 +36,11 @@ The second CAN port can be enabled if both the carrier and the module
 supports it. Load `can1.dtso` to enable it. Please note, that this also
 requires a modified RCW, because CAN1 shares pins with the I²C PM bus.
 
+### 400kHz for I²C GP and PM
+
+The I²C GP and PM bus can be switched to 400kHz by using either
+`i2c-gp-400khz.dtso` or `i2c-pm-400khz.dtso`.
+
 ### Second ethernet link to the internal switch
 
 By default, only one 2.5Gb/s link to the internal switch is active. This
