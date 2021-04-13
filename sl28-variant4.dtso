@@ -13,7 +13,8 @@
 		__overlay__ {
 			qca,clk-out-frequency = <125000000>;
 			qca,clk-out-strength = <0>;
-			vddio-supply = <&vddh>;
+			qca,keep-pll-enabled;
+			vddio-supply = <&vddio>;
 			status = "okay";
 
 			vddio: vddio-regulator {
