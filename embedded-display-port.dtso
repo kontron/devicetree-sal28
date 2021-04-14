@@ -29,4 +29,16 @@
 			};
 		};
 	};
+
+	fragment@1 {
+		target = <&cpld_gpo0>;
+
+		__overlay__ {
+			lcd0_vdd_enable {
+				gpio-hog;
+				gpios = <0 0>;
+				output-high;
+			};
+		};
+	};
 };
