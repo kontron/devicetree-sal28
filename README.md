@@ -6,7 +6,15 @@ of the base device tree.
 ## Variant overlays
 
 There are multiple variants of the SMARC-sAL28 in respect of the network
-and audio functionality.
+and audio functionality. Board variant 1 has just one ethernet port without
+TSN functionality but has all four SerDes lanes available for the user.
+Board variant 2 has two ethernet ports and an audio interface. These ports
+are connected to the internal switch, thus it doesn't have any direct
+ethernet connection, but it makes the board perfect for ring topologies.
+Board variant 3 has one (TSN-capable) ethernet port. Board variant 4 has
+two ethernet ports (one TSN-capable and one standard one). Both variant 3
+and 4 have a special QSGMII lane available, so that the four internal
+switch ports can be exposed on the carrier board.
 
 ## Carrier overlays
 
